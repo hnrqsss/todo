@@ -11,7 +11,7 @@ import  createSagaMiddleware from 'redux-saga'
 import index from '../sagas'
 
 //components
-import { NewToDo } from './newToDo'
+import NewToDo  from './newToDo'
 import TodoList from './toDoList'
 
 const sagaMiddleware = createSagaMiddleware()

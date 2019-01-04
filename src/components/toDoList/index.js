@@ -16,7 +16,10 @@ class TodoList extends Component {
 
         return(
             <ul className='todo-list'>
-                {todos.length > 0 && todos.map(todo => <TodoItem todo={todo} key={todo.id} />)}
+                {todos.length > 0 
+                    ? todos.map((todo) => <TodoItem todo={todo} key={todo.id} />) 
+                    : <li>Nenhuma tarefa cadastrada</li>
+                }
             </ul>
         )
     }

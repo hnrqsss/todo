@@ -32,13 +32,13 @@ const todoReducer = (state = INITIAL_STATE, action) => {
         }
     }
 
-    if(action.type === 'ADD_NEW_TODO') {
-        return {
-            isFetching: false,
-            todos: [...state.todos, action.newTodo],
-            error: 'action.error'
-        }
-    }
+    // if(action.type === 'ADD_NEW_TODO') {
+    //     return {
+    //         isFetching: false,
+    //         todos: [...state.todos, action.todo],
+    //         error: 'action.error'
+    //     }
+    // }
 
     return state
 }

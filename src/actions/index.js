@@ -18,9 +18,23 @@ export const requestTodoError = (error) => {
     }
 }
 
-export const addNewTodo = (newTodo) => {
+export const addNewTodo = (todo) => {
     return {
         type: 'ADD_NEW_TODO',
-        newTodo
+        todo
+    }
+}
+
+export const changeTodo = (todo) => {
+    return {
+        type: 'SET_TODO',
+        todo
+    }
+}
+
+export const deleteTodo = (todo) => {
+    return {
+        type: 'DELETE_TODO',
+        todo
     }
 }
