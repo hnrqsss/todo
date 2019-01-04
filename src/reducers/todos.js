@@ -6,6 +6,8 @@ const INITIAL_STATE = {
 
 const todoReducer = (state = INITIAL_STATE, action) => {
 
+    console.log(action)
+
     if(action.type === 'INIT_REQUEST_TODOS') {
         return {
             isFetching: true,
@@ -22,11 +24,19 @@ const todoReducer = (state = INITIAL_STATE, action) => {
         }
     }
 
-    if(action.type === 'REQUEST_TODOS_SUCCESS') {
+    if(action.type === 'REQUEST_TODOS_ERROR') {
         return {
             isFetching: false,
             todos: state.todos,
             error: action.error
+        }
+    }
+
+    if(action.type === 'ADD_NEW_TODO') {
+        return {
+            isFetching: false,
+            todos: [...state.todos, action.newTodo],
+            error: 'action.error'
         }
     }
 
