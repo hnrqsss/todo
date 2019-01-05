@@ -1,7 +1,10 @@
 import React from 'react'
+import './index.css'
 import { connect } from 'react-redux'
 import {  changeTodo, deleteTodo, requestTodoSuccess } from "./../../actions";
 
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faPencilAlt, faCheck, faTimes } from '@fortawesome/free-solid-svg-icons'
 
 
 const TodoItem = ({ todo, todos, changeTodo, deleteTodo, requestTodoSuccess }) => {
@@ -21,18 +24,26 @@ const TodoItem = ({ todo, todos, changeTodo, deleteTodo, requestTodoSuccess }) =
     const enableEdit = element => {
         
         const input = element.target.closest('li').firstChild
-        
         input.removeAttribute('disabled')
+        input.focus()    
     }
 
     const setTaskStatus = (element) => {
         
         const input = element.target.closest('li').firstChild
         
+        const li = element.target.closest('li')
+
         input.setAttribute('disabled',true)
         
         todo.isFinished = !todo.isFinished
         
+        if(todo.isFinished) 
+            li.classList.add('isFinished')  
+
+        if(!todo.isFinished)    
+            li.classList.remove('isFinished')
+
         changeTodo(todo)
     }
 
@@ -46,16 +57,19 @@ const TodoItem = ({ todo, todos, changeTodo, deleteTodo, requestTodoSuccess }) =
     }
     
     return (
-        <li className='todo-list-item' >
+        <li className={`todo-list-item ${todo.isFinished ? 'isFinished' : ''}`} >
             <input 
                 defaultValue={todo.task} 
                 type='text'
                 disabled={true}
                 onKeyDown={(element) => prepareToSetTodo(element)}
+                className='todo-task'
             />
-            <button onClick={(element) => enableEdit(element)}>Editar</button> 
-            <button onClick={(element) => setTaskStatus(element)}>Finalizar</button>
-            <button onClick={(element) => prepareToDeleteTodo(element)}>deletar</button> 
+            <div className='actions'>
+                <button  className='edit' onClick={(element) => enableEdit(element)}><FontAwesomeIcon icon={faPencilAlt} /></button> 
+                <button  className='finish' onClick={(element) => setTaskStatus(element)}><FontAwesomeIcon icon={faCheck} /></button>
+                <button  className='delete' onClick={(element) => prepareToDeleteTodo(element)}><FontAwesomeIcon icon={faTimes} /></button> 
+            </div>
             
         </li>
     )

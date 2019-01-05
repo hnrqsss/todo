@@ -4,9 +4,10 @@
 
 .form-add-todo input.input-todo {
     border: 0.1px solid rgba(0,0,0,0.1);
-    width: 100%;
+    width: calc(100% - 2vw);
     height: 5vw;
     padding-left: 2vw;
+    margin-right: 2vw;
     box-shadow: 1px 2px 4px rgba(0,0,0,0.3);
     font-size: 2vw;
 }
