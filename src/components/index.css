@@ -1,0 +1,10 @@
+.App {
+    margin: 0 10vw;
+}
+
+@media (max-width: 601px) {
+    .App {
+        margin: 0 3vw;
+    }
+}
+

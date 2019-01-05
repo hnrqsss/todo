@@ -1,4 +1,5 @@
 import React from 'react'
+import './index.css'
 import { connect } from 'react-redux'
 import { addNewTodo, requestTodoSuccess } from '../../actions'
 import { Todo } from './../../model/Todo'
@@ -7,30 +8,39 @@ const NewToDo = ({todos,addNewTodo,requestTodoSuccess}) => {
     
     const prepapareToSubmit = element => {
         
-        element.preventDefault()
+        if(element.keyCode === 13) {
+
+            element.preventDefault()
+            
+            const form = element.target.closest('form')
+
+            const input = element.target.value
         
-        const input = element.target.elements.addTodo.value
+            const id = (new Date().valueOf())
+
+            const todo = new Todo(id, input)
+
+            todos = [...todos, todo ]
+
+            addNewTodo(todo)
+            
+            requestTodoSuccess(todos)
+
+            form.reset()
+
+        }
         
-        const id = (new Date().valueOf())
-
-
-        const todo = new Todo(id, input)
-
-        const newTodos = [...todos, todo ]
-
-        addNewTodo(todo)
-        
-        requestTodoSuccess(newTodos)
-
-        element.target.reset()
-
     }
 
     return(
-        <form className='form-add-todo' onSubmit={(element) => prepapareToSubmit(element)}>
-            <label htmlFor='addTodo'>Adicionar tarefa:</label>
-            <input name='addTodo' type='text' className='input-todo' />
-            <button>Salvar</button>
+        <form className='form-add-todo' >
+            <input 
+                name='addTodo' 
+                type='text' 
+                className='input-todo' 
+                onKeyDown={(element) => prepapareToSubmit(element)} 
+                placeholder='O que precisa fazer?'
+                />
         </form>
     )
 }

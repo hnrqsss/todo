@@ -1,3 +1,19 @@
 {
-  "todos": []
+  "todos": [
+    {
+      "id": 1546691555719,
+      "task": "Primeiro",
+      "isFinished": false
+    },
+    {
+      "id": 1546691669905,
+      "task": "Teste",
+      "isFinished": false
+    },
+    {
+      "id": 1546691672471,
+      "task": "novo",
+      "isFinished": false
+    }
+  ]
 }
