@@ -1,33 +1,8 @@
 {
   "todos": [
     {
-      "id": 1546695743409,
-      "task": "Segunda Tarefa",
-      "isFinished": false
-    },
-    {
-      "id": 1546696657752,
-      "task": "Segunda",
-      "isFinished": false
-    },
-    {
-      "id": 1546696660136,
-      "task": "Terceira",
-      "isFinished": false
-    },
-    {
-      "id": 1546696662763,
-      "task": "Quarta",
-      "isFinished": false
-    },
-    {
-      "id": 1546696664372,
-      "task": "QUinta",
-      "isFinished": false
-    },
-    {
-      "id": 1546696666683,
-      "task": "Sexta",
+      "id": 1546697974640,
+      "task": "Nova",
       "isFinished": false
     }
   ]

@@ -19,3 +19,11 @@
     color: #888;
     font-size: 2vw;
 }
+
+@media(max-width: 601px) {
+    .form-add-todo input.input-todo {
+        height: 10vw;
+        font-size: 3vw;
+        box-shadow: 1px 2px 4px rgba(0,0,0,0.5);
+    }
+}

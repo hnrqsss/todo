@@ -1,7 +1,7 @@
 import React from 'react'
 import './index.css'
 import { connect } from 'react-redux'
-import {  changeTodo, deleteTodo, requestTodoSuccess } from "./../../actions";
+import {  changeTodo, deleteTodo, requestTodoSuccess } from './../../actions'
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPencilAlt, faCheck, faTimes } from '@fortawesome/free-solid-svg-icons'

@@ -2,11 +2,17 @@
     position: relative;
     height: 5vw;
     margin: 2vw 0;
-    /* display: flex; */
+}
+
+.none-task {
+    margin-top: 30px;
+    text-transform: uppercase;
+    font-weight: 300;
+    color: #888;
 }
 
 .todo-list-item input.todo-task {
-    width: calc(100% - 2vw);
+    width: calc(98% - 2vw);
     padding-left: 2vw;
     font-size: 2vw;
     color: #FFF; 
@@ -30,7 +36,7 @@
     width: 15%;
     height: 100%;
     top: 0;
-    right: 2vw;
+    right: 3vw;
     position: absolute;
 }
 
@@ -61,4 +67,19 @@
 
 .isFinished {
     opacity: 0.4 !important;
+}
+
+@media(max-width: 601px) {
+    .todo-list-item {
+        height: 12vw;
+        font-size: 3vw;
+    }
+    
+    .todo-list-item div.actions button {
+        width: 5vw;
+        height: 5vw;
+    }
+    .todo-list-item div.actions {
+        width: 22vw;
+    }
 }
