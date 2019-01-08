@@ -1,13 +1,13 @@
 import React from 'react'
 import './index.css'
 import { connect } from 'react-redux'
-import {  changeTodo, deleteTodo, requestTodoSuccess } from './../../actions'
+import {  Creators } from './../../store/actions'
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPencilAlt, faCheck, faTimes } from '@fortawesome/free-solid-svg-icons'
 
 
-const TodoItem = ({ todo, todos, changeTodo, deleteTodo, requestTodoSuccess }) => {
+const TodoItem = ({ todo, changeTodo, deleteTodo }) => {
     
     const prepareToSetTodo = (element) => {      
         
@@ -47,14 +47,7 @@ const TodoItem = ({ todo, todos, changeTodo, deleteTodo, requestTodoSuccess }) =
         changeTodo(todo)
     }
 
-    const prepareToDeleteTodo = () => {
-        
-        deleteTodo(todo)
-        
-        const newTodos = todos.filter(item => item.id !== todo.id)
-        
-        requestTodoSuccess(newTodos)
-    }
+    const prepareToDeleteTodo = () => deleteTodo(todo)
     
     return (
         <li className={`todo-list-item ${todo.isFinished ? 'isFinished' : ''}`} >
@@ -69,8 +62,7 @@ const TodoItem = ({ todo, todos, changeTodo, deleteTodo, requestTodoSuccess }) =
                 <button  className='edit' onClick={(element) => enableEdit(element)}><FontAwesomeIcon icon={faPencilAlt} /></button> 
                 <button  className='finish' onClick={(element) => setTaskStatus(element)}><FontAwesomeIcon icon={faCheck} /></button>
                 <button  className='delete' onClick={(element) => prepareToDeleteTodo(element)}><FontAwesomeIcon icon={faTimes} /></button> 
-            </div>
-            
+            </div>            
         </li>
     )
 } 
@@ -83,9 +75,9 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
     return {
-        changeTodo: (todo) => dispatch(changeTodo(todo)),
-        deleteTodo: (todo) => dispatch(deleteTodo(todo)),
-        requestTodoSuccess: (todos) => dispatch(requestTodoSuccess(todos))
+        changeTodo: (todo) => dispatch(Creators.changeTodo(todo)),
+        deleteTodo: (todo) => dispatch(Creators.deleteTodo(todo)),
+        requestTodoSuccess: (todos) => dispatch(Creators.requestTodoSuccess(todos))
     }
 }
 

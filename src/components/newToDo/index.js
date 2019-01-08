@@ -1,10 +1,10 @@
 import React from 'react'
 import './index.css'
 import { connect } from 'react-redux'
-import { addNewTodo, requestTodoSuccess } from '../../actions'
+import { Creators } from './../../store/actions'
 import { Todo } from './../../model/Todo'
 
-const NewToDo = ({todos,addNewTodo,requestTodoSuccess}) => {
+const NewToDo = ({ addNewTodo }) => {
     
     const prepapareToSubmit = element => {
         
@@ -20,12 +20,8 @@ const NewToDo = ({todos,addNewTodo,requestTodoSuccess}) => {
 
             const todo = new Todo(id, input)
 
-            todos = [...todos, todo ]
-
             addNewTodo(todo)
-            
-            requestTodoSuccess(todos)
-
+        
             form.reset()
 
         }
@@ -53,8 +49,8 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
     return {
-        addNewTodo: (todo) => dispatch(addNewTodo(todo)),
-        requestTodoSuccess: (todos) => dispatch(requestTodoSuccess(todos))
+        addNewTodo: (todo) => dispatch(Creators.addNewTodo(todo)),
+        requestTodoSuccess: (todos) => dispatch(Creators.requestTodoSuccess(todos))
     }
 }
 

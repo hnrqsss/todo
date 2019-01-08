@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import './index.css'
 import { connect } from 'react-redux'
-import { requestTodo } from './../../actions'
+import { Creators } from './../../store/actions'
 
 // components
 import TodoItem from './../toDoItem'
@@ -13,7 +13,7 @@ class TodoList extends Component {
     }
 
     render() {
-        const { todos } = this.props
+        const { todos } = this.props.todos
 
         return(
             <ul className='todo-list'>
@@ -34,7 +34,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
     return {
-        requestTodo: () => dispatch(requestTodo())
+        requestTodo: () => dispatch(Creators.requestTodo())
     }
 }
 

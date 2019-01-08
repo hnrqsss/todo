@@ -1,9 +1,9 @@
 import { put } from 'redux-saga/effects'
-import { requestTodoSuccess } from '../actions'
+import { Creators } from './../actions'
 
 export function *getTodos(api) {
     const { data } = yield api.get()
-    yield put(requestTodoSuccess(data))
+    yield put(Creators.requestTodoSuccess(data))
 }
 
 export function *setTodo(api,data) {
